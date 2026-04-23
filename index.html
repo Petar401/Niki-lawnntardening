@@ -168,20 +168,47 @@
         </div>
       </section>
 
-      <!-- Gallery -->
+      <!-- Gallery / Before & After -->
       <section id="gallery" class="section">
         <header class="section-head">
           <p class="eyebrow">Recent work</p>
-          <h2>Before the brambles, after the bloom.</h2>
+          <h2>Before &amp; After.</h2>
+          <p class="section-lead">Drag the slider to see the transformation.</p>
         </header>
-        <div class="gallery">
-          <figure class="tile tile-1"></figure>
-          <figure class="tile tile-2"></figure>
-          <figure class="tile tile-3"></figure>
-          <figure class="tile tile-4"></figure>
-          <figure class="tile tile-5"></figure>
+
+        <div class="ba-grid">
+          <figure class="ba" data-ba>
+            <div class="ba-img ba-after">
+              <img src="images/after-1.jpg" alt="After: cleared bed with lattice and blue ornament" loading="lazy" onerror="this.closest('.ba').classList.add('ba-fallback-1')"/>
+              <span class="ba-label ba-label-after">After</span>
+            </div>
+            <div class="ba-img ba-before" data-ba-before>
+              <img src="images/before-1.jpg" alt="Before: overgrown bed next to compost bin" loading="lazy" onerror="this.closest('.ba').classList.add('ba-fallback-1')"/>
+              <span class="ba-label ba-label-before">Before</span>
+            </div>
+            <button class="ba-handle" data-ba-handle aria-label="Drag to compare before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" role="slider">
+              <span aria-hidden="true">&#10094;&nbsp;&#10095;</span>
+            </button>
+            <figcaption class="ba-caption">Overgrown bed &rarr; tidy clearance</figcaption>
+          </figure>
+
+          <figure class="ba" data-ba>
+            <div class="ba-img ba-after">
+              <img src="images/after-2.jpg" alt="After: tidy tree base with brick edging and gravel" loading="lazy" onerror="this.closest('.ba').classList.add('ba-fallback-2')"/>
+              <span class="ba-label ba-label-after">After</span>
+            </div>
+            <div class="ba-img ba-before" data-ba-before>
+              <img src="images/before-2.jpg" alt="Before: overgrown tree base with weeds" loading="lazy" onerror="this.closest('.ba').classList.add('ba-fallback-2')"/>
+              <span class="ba-label ba-label-before">Before</span>
+            </div>
+            <button class="ba-handle" data-ba-handle aria-label="Drag to compare before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" role="slider">
+              <span aria-hidden="true">&#10094;&nbsp;&#10095;</span>
+            </button>
+            <figcaption class="ba-caption">Weedy tree base &rarr; brick-edged border</figcaption>
+          </figure>
         </div>
-        <p class="gallery-note">Photos are illustrative &mdash; swap for real job photos from the Facebook page.</p>
+
+        <p class="gallery-note">Drop photos into <code>images/</code> as <code>before-1.jpg</code>, <code>after-1.jpg</code>, <code>before-2.jpg</code>, <code>after-2.jpg</code>.</p>
       </section>
 
       <!-- Special offer + FAQ -->

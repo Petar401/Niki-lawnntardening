@@ -61,6 +61,63 @@
     restart();
   }
 
+  // ---- Before / After comparison slider ----
+  document.querySelectorAll('[data-ba]').forEach((ba) => {
+    const handle = ba.querySelector('[data-ba-handle]');
+    if (!handle) return;
+
+    let dragging = false;
+
+    const setPos = (clientX) => {
+      const rect = ba.getBoundingClientRect();
+      let pct = ((clientX - rect.left) / rect.width) * 100;
+      pct = Math.max(0, Math.min(100, pct));
+      ba.style.setProperty('--pos', pct + '%');
+      handle.setAttribute('aria-valuenow', Math.round(pct));
+    };
+
+    const onDown = (e) => {
+      dragging = true;
+      ba.classList.add('is-dragging');
+      const x = e.touches ? e.touches[0].clientX : e.clientX;
+      setPos(x);
+      e.preventDefault();
+    };
+    const onMove = (e) => {
+      if (!dragging) return;
+      const x = e.touches ? e.touches[0].clientX : e.clientX;
+      setPos(x);
+    };
+    const onUp = () => {
+      dragging = false;
+      ba.classList.remove('is-dragging');
+    };
+
+    handle.addEventListener('mousedown', onDown);
+    handle.addEventListener('touchstart', onDown, { passive: false });
+    ba.addEventListener('mousedown', onDown);
+    ba.addEventListener('touchstart', onDown, { passive: false });
+
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('touchmove', onMove, { passive: true });
+    window.addEventListener('mouseup', onUp);
+    window.addEventListener('touchend', onUp);
+
+    handle.addEventListener('keydown', (e) => {
+      const current = parseFloat(handle.getAttribute('aria-valuenow') || '50');
+      let next = current;
+      if (e.key === 'ArrowLeft')  next = Math.max(0, current - 5);
+      if (e.key === 'ArrowRight') next = Math.min(100, current + 5);
+      if (e.key === 'Home') next = 0;
+      if (e.key === 'End')  next = 100;
+      if (next !== current) {
+        ba.style.setProperty('--pos', next + '%');
+        handle.setAttribute('aria-valuenow', Math.round(next));
+        e.preventDefault();
+      }
+    });
+  });
+
   // ---- Scroll reveal ----
   const revealTargets = document.querySelectorAll(
     '.collection, .about-img, .about-grid > div, .tile, .offer > div, .offer-card, .faq details, .contact-form, .contact-list, .post, .section-head'
