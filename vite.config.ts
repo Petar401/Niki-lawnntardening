@@ -19,5 +19,9 @@ export default defineConfig({
   build: {
     target: 'es2022',
     sourcemap: false,
+    // The 3D scene chunk pulls in three.js + r3f + drei. It is lazy-loaded
+    // and only fires once the hero is in view, so the size is intentional
+    // and should not pollute the build output with a warning.
+    chunkSizeWarningLimit: 1000,
   },
 });

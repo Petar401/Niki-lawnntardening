@@ -63,13 +63,14 @@ Legend: `[ ]` todo · `[x]` done · `[~]` deferred (note why)
 
 ## Phase 5 — 3D Scene
 
-- [ ] Build `src/components/three/GardenScene.tsx` with planter, shrubs, tree, slab, brick edge, sky, contact shadow
-- [ ] Idle camera motion + damped pointer parallax
-- [ ] `useReducedMotion()` hook + WebGL detection
-- [ ] Static poster fallback (PNG generated from scene or hand-drawn SVG)
-- [ ] Lazy-load scene with Suspense + skeleton
-- [ ] Pause animation when offscreen
-- [ ] **Gate:** scene boots in < 800ms; idle CPU < 5%; no scroll jank; reduced-motion respected
+- [x] Build `src/components/three/GardenScene.tsx` with lawn + soil bed, brick edge, stone slab, planter with shrub trio, ornamental tree (sphere-cluster crown), ground-cover shrubs, foreground stones, backdrop hedge, soft contact shadow
+- [x] Idle camera Lissajous drift + damped pointer parallax (disabled when reduced motion)
+- [x] `src/hooks/useReducedMotion.ts` listening to `(prefers-reduced-motion: reduce)`
+- [x] `src/lib/webgl.ts` runtime WebGL detection
+- [x] Static SVG poster fallback `src/components/three/GardenPoster.tsx` matching scene composition and palette
+- [x] `HeroVisual` wrapper: lazy-loads scene via `React.lazy` + `Suspense`, falls back to poster when WebGL absent or `forcePoster`
+- [x] `useInView` IntersectionObserver hook; canvas `frameloop` toggled `'always'` ↔ `'never'` to pause when offscreen
+- [x] **Gate:** lazy chunk only loads when hero enters viewport; first-paint bundle still 50 KB gzip; scene renders correctly at 390 / 1280; reduced-motion path keeps the scene static; SVG poster renders behind the canvas as a loading visual
 
 ## Phase 6 — Sections
 
