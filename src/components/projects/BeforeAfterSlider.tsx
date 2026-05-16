@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/cn';
+import { projectImageSizes, variantSrcSet } from '@/lib/responsive-image';
 
 type Props = {
   before: string;
@@ -8,6 +9,9 @@ type Props = {
   afterAlt: string;
   className?: string;
   initial?: number; // 0..100
+  /** Source image dimensions, used to set <img width/height> for CLS prevention. */
+  sourceWidth?: number;
+  sourceHeight?: number;
 };
 
 export function BeforeAfterSlider({
@@ -17,6 +21,8 @@ export function BeforeAfterSlider({
   afterAlt,
   className,
   initial = 50,
+  sourceWidth = 1536,
+  sourceHeight = 1126,
 }: Props) {
   const [pos, setPos] = useState<number>(initial);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -47,7 +53,6 @@ export function BeforeAfterSlider({
   }, [setFromClientX]);
 
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
-    // Ignore drags that begin on the keyboard slider — that has its own input.
     if ((e.target as HTMLElement).tagName === 'INPUT') return;
     draggingRef.current = true;
     setFromClientX(e.clientX);
@@ -62,26 +67,38 @@ export function BeforeAfterSlider({
       )}
       onPointerDown={onPointerDown}
     >
-      {/* AFTER — full visible base layer */}
-      <img
-        src={after}
-        alt={afterAlt}
-        loading="lazy"
-        decoding="async"
-        className="absolute inset-0 h-full w-full object-cover"
-        draggable={false}
-      />
-      {/* BEFORE — same size as container, clipped on the right via clip-path */}
-      <img
-        src={before}
-        alt=""
-        loading="lazy"
-        decoding="async"
-        aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover"
-        style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
-        draggable={false}
-      />
+      {/* AFTER — visible base layer */}
+      <picture>
+        <source type="image/avif" srcSet={variantSrcSet(after, 'avif')} sizes={projectImageSizes} />
+        <source type="image/webp" srcSet={variantSrcSet(after, 'webp')} sizes={projectImageSizes} />
+        <img
+          src={after}
+          alt={afterAlt}
+          width={sourceWidth}
+          height={sourceHeight}
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
+          draggable={false}
+        />
+      </picture>
+      {/* BEFORE — same layer, clipped on the right via clip-path */}
+      <picture>
+        <source type="image/avif" srcSet={variantSrcSet(before, 'avif')} sizes={projectImageSizes} />
+        <source type="image/webp" srcSet={variantSrcSet(before, 'webp')} sizes={projectImageSizes} />
+        <img
+          src={before}
+          alt=""
+          aria-hidden="true"
+          width={sourceWidth}
+          height={sourceHeight}
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
+          style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
+          draggable={false}
+        />
+      </picture>
 
       {/* corner labels */}
       <span className="pointer-events-none absolute left-3 top-3 rounded-full bg-ink/75 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wider text-cream">
@@ -97,7 +114,6 @@ export function BeforeAfterSlider({
         style={{ left: `${pos}%` }}
         aria-hidden="true"
       />
-      {/* keyboard-accessible slider input — overlay, transparent */}
       <input
         type="range"
         min={0}
@@ -107,7 +123,6 @@ export function BeforeAfterSlider({
         aria-label={`Before-and-after comparison. Before — ${beforeAlt} After — ${afterAlt}`}
         className="absolute inset-0 h-full w-full cursor-ew-resize appearance-none bg-transparent opacity-0"
       />
-      {/* Visible drag handle */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cream p-2 shadow-lift ring-1 ring-stone/70 transition-transform duration-150 group-hover:scale-110"

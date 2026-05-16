@@ -66,7 +66,7 @@ Produces a fully static `dist/` directory deployable to Vercel, Netlify, Cloudfl
 
 ## Phase status
 
-See `TASKS.md`. Currently completed: Phase 1 (Audit), Phase 2 (Foundation), Phase 3 (Design System), Phase 4 (Content), Phase 5 (3D Scene), Phase 6 (Page Sections), Phase 7 (Forms).
+See `TASKS.md`. Currently completed: Phase 1 (Audit), Phase 2 (Foundation), Phase 3 (Design System), Phase 4 (Content), Phase 5 (3D Scene), Phase 6 (Page Sections), Phase 7 (Forms), Phase 8 (Performance).
 
 ## How the quote form sends enquiries
 
@@ -84,7 +84,15 @@ The project photos in `public/images/projects/` are real customer work but the o
 node scripts/crop-project-photos.mjs
 ```
 
-If your replacement photos are clean (no overlays), skip the script.
+If your replacement photos are clean (no overlays), skip the cropping script.
+
+After cropping (or if you supply already-clean photos), regenerate the AVIF + WebP variants used by the slider:
+
+```bash
+node scripts/build-image-variants.mjs
+```
+
+That produces `<stem>-800.avif`, `<stem>-800.webp`, `<stem>-1200.avif`, `<stem>-1200.webp` next to each `<stem>.jpg`. The site picks the smallest format the browser supports at the right size automatically.
 
 ## Launch checklist — content the owner must replace before going live
 
