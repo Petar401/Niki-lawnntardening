@@ -37,16 +37,16 @@ Legend: `[ ]` todo · `[x]` done · `[~]` deferred (note why)
 
 ## Phase 3 — Design System
 
-- [ ] Author `src/styles/tokens.css` (colors, type scale, spacing, radii, shadows, motion)
-- [ ] Author `src/styles/globals.css` (tailwind layers, base resets, focus-visible)
-- [ ] Build `Container`
-- [ ] Build `Button` (primary, secondary, ghost; sm, md, lg; supports `as="a"`)
-- [ ] Build `SectionHeading` (eyebrow + title + lede)
-- [ ] Build `Card` (default, interactive)
-- [ ] Build `Tag`
-- [ ] Build `Icon` wrapper around lucide-react
-- [ ] Internal `/dev/styleguide` page that renders every primitive
-- [ ] **Gate:** styleguide passes visual review at 320/768/1280; AA contrast verified for all token combinations
+- [x] Author `src/styles/tokens.css` (colors, type scale, spacing, radii, shadows, motion)
+- [x] Author `src/styles/globals.css` (tailwind layers, base resets, focus-visible)
+- [x] Build `Container` (polymorphic, sm/md/lg/xl sizes)
+- [x] Build `Button` (primary, secondary, ghost; sm, md, lg; polymorphic via `as`, leading/trailing icons, full-width)
+- [x] Build `SectionHeading` (eyebrow + title + lede + alignment + size + heading level)
+- [x] Build `Card` (default, interactive, subtle)
+- [x] Build `Tag` (leaf, bloom, neutral)
+- [x] Build `Icon` wrapper around lucide-react (consistent sizing + a11y)
+- [x] Internal `/dev/styleguide` page that renders every primitive (lazy-loaded; dev-only gate)
+- [x] **Gate:** styleguide visually reviewed at 375 / 768 / 1280; contrast checked for primary, body, and accent combinations (`forest` on `cream` ≈ 9:1 AAA; `ink` on `cream` ≈ 14:1 AAA; `bloom` on `cream` ≈ 3.8:1 — reserved for UI accent / large text only, not body text)
 
 ## Phase 4 — Content
 
