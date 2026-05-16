@@ -20,19 +20,20 @@ Legend: `[ ]` todo · `[x]` done · `[~]` deferred (note why)
 
 ## Phase 2 — Foundation
 
-- [ ] Initialize Vite + React + TypeScript project (in place; no `npx create` blowaway of the repo root)
-- [ ] Add `.gitignore`, `.editorconfig`, `.nvmrc`
-- [ ] Install Tailwind CSS, PostCSS, autoprefixer
-- [ ] Install ESLint + `@typescript-eslint` + `eslint-plugin-jsx-a11y` + Prettier
-- [ ] Install `@fontsource/fraunces`, `@fontsource/inter`
-- [ ] Install `lucide-react`, `framer-motion`
-- [ ] Install `three`, `@react-three/fiber`, `@react-three/drei`
-- [ ] Configure `tsconfig.json` with strict mode + path alias `@/*`
-- [ ] Configure `vite.config.ts` with `@/` resolver
-- [ ] Configure `tailwind.config.ts` to consume CSS-variable tokens
-- [ ] Write `index.html` with meta, viewport, theme color, favicon link
-- [ ] Add `src/main.tsx`, `src/App.tsx` placeholder
-- [ ] **Gate:** `npm run dev` shows brand placeholder; `npm run build` passes; `npm run typecheck` passes
+- [x] Initialize Vite + React + TypeScript project (in place; no `npx create` blowaway of the repo root)
+- [x] Add `.gitignore`, `.editorconfig`, `.nvmrc`, `.prettierrc.json`
+- [x] Install Tailwind CSS, PostCSS, autoprefixer
+- [x] Install ESLint + `@typescript-eslint` + `eslint-plugin-jsx-a11y` + Prettier
+- [x] Install `@fontsource/fraunces`, `@fontsource/inter`
+- [x] Install `lucide-react`, `framer-motion`
+- [x] Install `three`, `@react-three/fiber`, `@react-three/drei`
+- [x] Configure `tsconfig.json` (project refs) + `tsconfig.app.json` (strict, `@/*` alias) + `tsconfig.node.json`
+- [x] Configure `vite.config.ts` with `@/` resolver
+- [x] Configure `tailwind.config.ts` to consume CSS-variable tokens
+- [x] Write `index.html` with meta, viewport, theme color, favicon link
+- [x] Add `src/main.tsx`, `src/App.tsx` placeholder + `src/vite-env.d.ts`
+- [x] Bootstrap `src/styles/tokens.css` (brand) and `src/styles/globals.css` (Tailwind layers + base resets) — full design-system fill in Phase 3
+- [x] **Gate:** `npm run build` passes (143 KB JS / 46 KB gzip + 19 KB CSS / 4 KB gzip); `npm run typecheck` passes; `npm run lint` passes
 
 ## Phase 3 — Design System
 
