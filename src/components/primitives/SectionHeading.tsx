@@ -29,7 +29,7 @@ export function SectionHeading({
       )}
     >
       {eyebrow ? (
-        <span className="text-eyebrow font-medium uppercase text-forest/75">{eyebrow}</span>
+        <span className="text-eyebrow font-medium uppercase text-forest">{eyebrow}</span>
       ) : null}
       <HeadingTag
         className={cn(

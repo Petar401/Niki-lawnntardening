@@ -7,7 +7,7 @@ export default function PrivacyPage() {
   return (
     <div className="flex min-h-screen flex-col bg-cream text-ink">
       <Header />
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         <Container size="md" className="py-20">
           <DraftBanner kind="Privacy policy" />
           <SectionHeading
@@ -64,7 +64,7 @@ export default function PrivacyPage() {
             <Section title="Contact us">
               <p>
                 {isPlaceholder(site.contact.email) ? (
-                  <span className="text-ink/55" title="Replace before launch">
+                  <span className="text-ink/70" title="Replace before launch">
                     Email — add before launch
                   </span>
                 ) : (

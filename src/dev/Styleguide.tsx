@@ -50,7 +50,7 @@ export default function Styleguide() {
                 >
                   <div className="text-sm font-medium">{s.name}</div>
                 </div>
-                <div className="px-3 py-2 font-mono text-xs text-ink/60">{s.varName}</div>
+                <div className="px-3 py-2 font-mono text-xs text-ink/70">{s.varName}</div>
               </div>
             ))}
           </div>
@@ -65,7 +65,7 @@ export default function Styleguide() {
             as="h2"
           />
           <div className="space-y-5">
-            <p className="text-eyebrow font-medium uppercase text-forest/75">eyebrow · 13px</p>
+            <p className="text-eyebrow font-medium uppercase text-forest">eyebrow · 13px</p>
             <h1 className="font-display text-display-xl text-forest">Display XL — a calmer garden</h1>
             <h2 className="font-display text-display-lg text-forest">Display LG — design &amp; care</h2>
             <h3 className="font-display text-display-md text-forest">Display MD — seasonal planting</h3>
@@ -76,7 +76,7 @@ export default function Styleguide() {
               Body base — used for body copy, FAQ answers, descriptions. Set in Inter at 1.6
               line-height for comfortable reading. Lorem-free zone.
             </p>
-            <p className="text-sm text-ink/60">
+            <p className="text-sm text-ink/70">
               Caption — used sparingly for image credits, fine print, footer.
             </p>
           </div>

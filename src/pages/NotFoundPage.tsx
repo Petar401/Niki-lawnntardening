@@ -7,9 +7,9 @@ export default function NotFoundPage() {
   return (
     <div className="flex min-h-screen flex-col bg-cream text-ink">
       <Header />
-      <main className="flex flex-1 items-center">
+      <main id="main-content" className="flex flex-1 items-center">
         <Container size="md" className="py-24 text-center">
-          <p className="text-eyebrow font-medium uppercase text-forest/75">404</p>
+          <p className="text-eyebrow font-medium uppercase text-forest">404</p>
           <h1 className="mt-3 font-display text-display-lg text-forest">
             That page has wandered off
           </h1>

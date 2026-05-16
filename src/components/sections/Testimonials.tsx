@@ -18,7 +18,7 @@ export function Testimonials() {
             align="center"
           />
           {site.flags.testimonialsAreIllustrative ? (
-            <p className="mx-auto mt-4 max-w-xl text-balance text-center text-xs uppercase tracking-wider text-ink/55">
+            <p className="mx-auto mt-4 max-w-xl text-balance text-center text-xs uppercase tracking-wider text-ink/70">
               Illustrative quotes — replaced with real, attributable
               testimonials before launch.
             </p>
@@ -28,7 +28,11 @@ export function Testimonials() {
           {testimonials.map((t, i) => (
             <Reveal key={t.author} as="li" delay={(i % 3) * 80}>
               <Card className="flex h-full flex-col">
-                <div className="flex items-center gap-1 text-bloom" aria-label={`${t.rating} out of 5 stars`}>
+                <div
+                  className="flex items-center gap-1 text-bloom"
+                  role="img"
+                  aria-label={`${t.rating} out of 5 stars`}
+                >
                   {Array.from({ length: t.rating }).map((_, idx) => (
                     <Icon key={idx} icon={Star} size="sm" className="fill-current" />
                   ))}
@@ -38,7 +42,7 @@ export function Testimonials() {
                 </blockquote>
                 <footer className="mt-5 border-t border-stone/60 pt-4">
                   <p className="font-display text-sm text-forest">{t.author}</p>
-                  <p className="text-xs uppercase tracking-wide text-ink/55">{t.detail}</p>
+                  <p className="text-xs uppercase tracking-wide text-ink/70">{t.detail}</p>
                 </footer>
               </Card>
             </Reveal>

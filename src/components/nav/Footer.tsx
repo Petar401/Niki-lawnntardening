@@ -6,7 +6,7 @@ import { isPlaceholder, site } from '@/content/site';
 import { services } from '@/content/services';
 
 const placeholderText = (label: string) => (
-  <span className="text-cream/55" title="Replace before launch">
+  <span className="italic text-cream/85" title="Replace before launch">
     {label}
   </span>
 );
@@ -22,7 +22,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
             <Wordmark tone="cream" />
-            <p className="mt-5 max-w-sm text-sm text-cream/75">{site.promise}</p>
+            <p className="mt-5 max-w-sm text-sm text-cream/90">{site.promise}</p>
             <ul className="mt-6 space-y-2.5 text-sm text-cream/85">
               <li className="flex items-center gap-2.5">
                 <Icon icon={Phone} size="sm" className="text-moss" />
@@ -51,7 +51,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-eyebrow font-medium uppercase text-cream/60">Explore</h3>
+            <h2 className="text-eyebrow font-medium uppercase text-cream/80">Explore</h2>
             <ul className="mt-4 space-y-2 text-sm">
               {navLinks.map((link) => (
                 <li key={link.href}>
@@ -63,7 +63,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-eyebrow font-medium uppercase text-cream/60">Services</h3>
+            <h2 className="text-eyebrow font-medium uppercase text-cream/80">Services</h2>
             <ul className="mt-4 space-y-2 text-sm">
               {services.map((s) => (
                 <li key={s.id}>
@@ -75,7 +75,7 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-cream/15 pt-6 text-xs text-cream/60 sm:flex-row sm:items-center">
+        <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-cream/15 pt-6 text-xs text-cream/80 sm:flex-row sm:items-center">
           <p>
             © {new Date().getFullYear()} {site.brand}. All rights reserved.
           </p>

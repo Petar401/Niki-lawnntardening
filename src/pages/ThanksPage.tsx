@@ -11,13 +11,13 @@ export default function ThanksPage() {
   return (
     <div className="flex min-h-screen flex-col bg-cream text-ink">
       <Header />
-      <main className="flex flex-1 items-center">
+      <main id="main-content" className="flex flex-1 items-center">
         <Container size="md" className="py-24">
           <div className="flex flex-col items-center text-center">
             <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-leaf/15 text-forest">
               <Icon icon={CheckCircle2} size="lg" />
             </span>
-            <p className="mt-6 text-eyebrow font-medium uppercase text-forest/75">
+            <p className="mt-6 text-eyebrow font-medium uppercase text-forest">
               Thank you
             </p>
             <h1 className="mt-3 font-display text-display-lg text-forest">
@@ -39,7 +39,7 @@ export default function ThanksPage() {
               </Button>
             </div>
             {(phoneOk || emailOk) && (
-              <p className="mt-10 text-sm text-ink/60">
+              <p className="mt-10 text-sm text-ink/70">
                 In the meantime, you can reach us
                 {phoneOk ? (
                   <>

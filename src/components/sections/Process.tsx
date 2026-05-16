@@ -28,7 +28,7 @@ export function Process() {
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-ink/75">
                   {step.description}
                 </p>
-                <p className="mt-4 text-xs uppercase tracking-wide text-leaf">
+                <p className="mt-4 text-xs uppercase tracking-wide text-forest">
                   {step.duration}
                 </p>
               </div>

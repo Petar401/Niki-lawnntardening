@@ -28,7 +28,7 @@ export function Wordmark({ className, tone = 'forest' }: Props) {
         <span className={cn('font-display text-lg font-semibold leading-none', text)}>
           {site.brand.split(' ')[0]}
         </span>
-        <span className={cn('hidden text-xs font-medium tracking-wide sm:inline', text, 'opacity-70')}>
+        <span className={cn('hidden text-xs font-medium tracking-wide sm:inline', text)}>
           Lawn &amp; Gardening
         </span>
       </span>

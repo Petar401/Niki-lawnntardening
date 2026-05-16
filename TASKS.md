@@ -117,13 +117,22 @@ Legend: `[ ]` todo · `[x]` done · `[~]` deferred (note why)
 
 ## Phase 9 — Accessibility
 
-- [ ] `eslint-plugin-jsx-a11y` clean
-- [ ] Keyboard pass (Tab/Shift+Tab/Enter/Esc)
-- [ ] Focus-visible styles on every interactive
-- [ ] Color contrast ≥ AA across all surfaces
-- [ ] 3D canvas alt-text + `role="img"`
-- [ ] Form errors with `aria-describedby` and `aria-invalid`
-- [ ] **Gate:** axe DevTools — zero critical/serious
+- [x] `eslint-plugin-jsx-a11y` clean (continuous from Phase 2)
+- [x] Skip-to-main-content link in the header — first Tab reveals it, Enter jumps focus past nav
+- [x] `id="main-content"` on every page's `<main>` so the skip target always exists
+- [x] Focus trap in `MobileMenu` (Tab cycles within dialog, Shift+Tab too), body-scroll lock, Esc closes — verified via Playwright
+- [x] Focus-visible rings on every interactive element (`focus-visible:ring-bloom`)
+- [x] Color contrast ≥ AA across all surfaces:
+  - replaced every `text-forest/75` with full `text-forest` (eyebrows now ~9:1)
+  - replaced sub-AA `text-ink/55|/50|/60` tints with `text-ink/70` (~5.6:1)
+  - replaced footer `text-cream/55|/60|/75` tints with `cream/80|/85|/90` on forest
+  - Process duration label moved from `text-leaf` (~2.9:1) to `text-forest`
+  - Footer placeholder labels gained italic + `cream/85` styling
+- [x] Star-rating div gained `role="img"` to legitimise its `aria-label`
+- [x] Footer column headers downgraded from `<h3>` to `<h2>` to keep heading order monotonic on every page
+- [x] 3D canvas wrapper has `role="img"` + descriptive `aria-label` (from Phase 5)
+- [x] Form errors with `aria-describedby` + `aria-invalid` + summary `role="alert"` (from Phase 7)
+- [x] **Gate:** axe-core (WCAG 2.0/2.1 A + AA + best-practice) — **zero violations** of any severity on /, /thanks, /privacy, /terms, /404
 
 ## Phase 10 — SEO
 

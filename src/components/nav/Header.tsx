@@ -28,6 +28,12 @@ export function Header() {
             : 'border-b border-transparent bg-cream/0',
         )}
       >
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-forest focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-cream focus:shadow-lift focus:outline-none focus:ring-2 focus:ring-bloom focus:ring-offset-2 focus:ring-offset-cream"
+        >
+          Skip to main content
+        </a>
         <Container className="flex h-16 items-center justify-between gap-6">
           <Wordmark />
           <nav aria-label="Primary" className="hidden lg:block">

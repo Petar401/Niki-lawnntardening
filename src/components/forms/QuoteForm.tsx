@@ -247,7 +247,7 @@ export function QuoteForm() {
 
       <fieldset className="flex flex-col gap-3">
         <legend className="text-sm font-medium text-ink/80">
-          What can we help with? <span className="text-ink/50">(pick any)</span>
+          What can we help with? <span className="text-ink/70">(pick any)</span>
         </legend>
         <div className="flex flex-wrap gap-2">
           {services.map((s) => {
@@ -287,7 +287,7 @@ export function QuoteForm() {
         />
       </Field>
 
-      <p className="text-xs text-ink/55">
+      <p className="text-xs text-ink/70">
         We will reply within one working day. We do not share your details.
       </p>
 

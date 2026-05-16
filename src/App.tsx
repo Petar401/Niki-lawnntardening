@@ -22,7 +22,7 @@ function currentPath(): string {
 }
 
 const PageLoading = () => (
-  <div className="p-10 text-ink/60" aria-busy="true">
+  <div className="p-10 text-ink/70" aria-busy="true">
     Loading…
   </div>
 );
@@ -71,7 +71,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-cream text-ink">
       <Header />
-      <main>
+      <main id="main-content">
         <Hero />
         <Services />
         <Projects />

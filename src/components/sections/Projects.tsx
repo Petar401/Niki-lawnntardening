@@ -37,7 +37,7 @@ export function Projects() {
                     ))}
                   </div>
                   <h3 className="mt-3 font-display text-xl text-forest">{p.title}</h3>
-                  <p className="mt-1 text-xs uppercase tracking-wide text-ink/55">
+                  <p className="mt-1 text-xs uppercase tracking-wide text-ink/70">
                     {p.location} · {p.type} · {p.durationDays === 1 ? '1 day on site' : `${p.durationDays} days on site`}
                   </p>
                   <p className="mt-3 text-sm leading-relaxed text-ink/75">{p.brief}</p>
@@ -54,7 +54,7 @@ export function Projects() {
         {illustrative.length > 0 ? (
           <div className="mt-16">
             <Reveal>
-              <h3 className="text-eyebrow font-medium uppercase text-forest/75">
+              <h3 className="text-eyebrow font-medium uppercase text-forest">
                 Other recent work
               </h3>
             </Reveal>
@@ -70,7 +70,7 @@ export function Projects() {
                       ))}
                     </div>
                     <h4 className="mt-3 font-display text-lg text-forest">{p.title}</h4>
-                    <p className="mt-1 text-xs uppercase tracking-wide text-ink/55">
+                    <p className="mt-1 text-xs uppercase tracking-wide text-ink/70">
                       {p.location} · {p.type}
                     </p>
                     <p className="mt-3 text-sm leading-relaxed text-ink/75">{p.brief}</p>

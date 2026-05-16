@@ -5,7 +5,7 @@ import { QuoteForm } from '@/components/forms/QuoteForm';
 import { Reveal } from '@/components/util/Reveal';
 
 const placeholderText = (label: string) => (
-  <span className="text-ink/50" title="Replace before launch">
+  <span className="text-ink/70" title="Replace before launch">
     {label}
   </span>
 );
@@ -31,7 +31,7 @@ export function Contact() {
                   <Icon icon={Phone} size="sm" />
                 </span>
                 <div>
-                  <div className="text-xs uppercase tracking-wide text-ink/55">Call us</div>
+                  <div className="text-xs uppercase tracking-wide text-ink/70">Call us</div>
                   <div className="mt-0.5 font-medium text-forest">
                     {phoneOk ? (
                       <a href={site.contact.phoneHref} className="hover:underline">
@@ -48,7 +48,7 @@ export function Contact() {
                   <Icon icon={Mail} size="sm" />
                 </span>
                 <div>
-                  <div className="text-xs uppercase tracking-wide text-ink/55">Email</div>
+                  <div className="text-xs uppercase tracking-wide text-ink/70">Email</div>
                   <div className="mt-0.5 font-medium text-forest">
                     {emailOk ? (
                       <a href={`mailto:${site.contact.email}`} className="hover:underline">
@@ -65,11 +65,11 @@ export function Contact() {
                   <Icon icon={MapPin} size="sm" />
                 </span>
                 <div>
-                  <div className="text-xs uppercase tracking-wide text-ink/55">Service area</div>
+                  <div className="text-xs uppercase tracking-wide text-ink/70">Service area</div>
                   <div className="mt-0.5 font-medium text-forest">
                     {areaOk ? site.contact.serviceArea : placeholderText('Service area — add before launch')}
                   </div>
-                  <div className="text-xs text-ink/55">{site.contact.hours}</div>
+                  <div className="text-xs text-ink/70">{site.contact.hours}</div>
                 </div>
               </li>
             </ul>

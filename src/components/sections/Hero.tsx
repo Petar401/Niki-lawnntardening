@@ -10,7 +10,7 @@ export function Hero() {
       <Container>
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
           <Reveal className="lg:col-span-6 xl:col-span-7">
-            <p className="text-eyebrow font-medium uppercase text-forest/75">
+            <p className="text-eyebrow font-medium uppercase text-forest">
               Garden design · lawn care · seasonal maintenance
             </p>
             <h1 className="mt-5 font-display text-display-xl text-forest">
