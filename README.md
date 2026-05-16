@@ -66,4 +66,25 @@ Produces a fully static `dist/` directory deployable to Vercel, Netlify, Cloudfl
 
 ## Phase status
 
-See `TASKS.md`. Currently completed: Phase 1 (Audit) and Phase 2 (Foundation).
+See `TASKS.md`. Currently completed: Phase 1 (Audit), Phase 2 (Foundation), Phase 3 (Design System), Phase 4 (Content).
+
+## Launch checklist — content the owner must replace before going live
+
+The site ships with clearly-marked placeholders in `src/content/site.ts`. Every value below must be replaced before the site goes to a live domain.
+
+| Where | Field | Default |
+| --- | --- | --- |
+| `src/content/site.ts` | `contact.phone` | `__PLACEHOLDER__` — real customer-facing phone |
+| `src/content/site.ts` | `contact.phoneHref` | `__PLACEHOLDER__` — `tel:+...` URL |
+| `src/content/site.ts` | `contact.email` | `__PLACEHOLDER__` — real customer-facing email |
+| `src/content/site.ts` | `contact.serviceArea` | `__PLACEHOLDER__` — e.g. `"Bath and surrounding villages"` |
+| `src/content/site.ts` | `contact.addressLine` | `__PLACEHOLDER__` — optional postal address line |
+| `src/content/site.ts` | `social.instagram` / `social.facebook` | `__PLACEHOLDER__` — full URLs or remove from footer |
+| `src/content/site.ts` | `trust[].value` | `12+` / `180+` / `5★` — confirm or correct |
+| `src/content/site.ts` | `flags.testimonialsAreIllustrative` | `true` — set to `false` once real, attributable testimonials replace `src/content/testimonials.ts` |
+| `src/content/site.ts` | `flags.showTestimonials` | `true` — set to `false` to hide the testimonials section entirely |
+| `src/content/testimonials.ts` | all entries | Three illustrative quotes — replace with real customer quotes (with names &amp; permission) |
+| `src/content/projects.ts` | `lawn-restoration-illustrative`, `planting-plan-illustrative` | Two illustrative entries — replace with real project pairs and photos when available |
+| `.env` (production) | `VITE_FORM_ENDPOINT` | Empty falls back to a `mailto:` link; set to a real form endpoint (Formspree, Resend, your own) before launch |
+| `.env` (production) | `VITE_SITE_URL` | Canonical URL once a domain is chosen |
+| `.env` (production) | `VITE_PUBLIC_PHONE`, `VITE_PUBLIC_EMAIL` | Optional duplicates for SEO &amp; structured data |

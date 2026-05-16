@@ -50,13 +50,16 @@ Legend: `[ ]` todo · `[x]` done · `[~]` deferred (note why)
 
 ## Phase 4 — Content
 
-- [ ] `src/content/site.ts` — brand, tagline, contact placeholders, flags
-- [ ] `src/content/services.ts` — 6 services with name/description/icon
-- [ ] `src/content/projects.ts` — 2 real entries (real photos) + 2 placeholder
-- [ ] `src/content/faqs.ts` — 8 honest entries
-- [ ] `src/content/testimonials.ts` — 3 placeholders, flagged
-- [ ] Copy review pass: no fluff, no lorem ipsum, specific gardening language
-- [ ] **Gate:** every placeholder is documented in `README.md` launch checklist
+- [x] `src/content/site.ts` — brand, tagline, owner name, contact placeholders, social, trust strip, flags, primary CTAs
+- [x] `src/content/services.ts` — 6 services with `name`/`short`/`description`/`highlights`/lucide icon
+- [x] `src/content/projects.ts` — 2 real entries (real photos, moved to `public/images/projects/`) + 2 illustrative entries clearly flagged via `isRealPhotography`
+- [x] `src/content/faqs.ts` — 8 honest entries (cost, area, garden waste, seasons, plants, one-off vs ongoing, insurance, attendance)
+- [x] `src/content/testimonials.ts` — 3 illustrative entries; section gated by `site.flags.showTestimonials` and labelled by `site.flags.testimonialsAreIllustrative`
+- [x] `src/content/process.ts` — 4 steps (walk-through, plan & quote, work, ongoing care)
+- [x] `src/content/nav.ts` — top-nav anchors
+- [x] Project photos moved to `public/images/projects/` with cleaner names and tracked via `git mv`
+- [x] Copy review pass: no fluff, no lorem ipsum, specific gardening language (named jobs, plant types, seasons)
+- [x] **Gate:** every placeholder is enumerated in `README.md` launch checklist
 
 ## Phase 5 — 3D Scene
 
