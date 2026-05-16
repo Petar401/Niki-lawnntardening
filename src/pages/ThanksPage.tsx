@@ -3,8 +3,10 @@ import { Button, Container, Icon } from '@/components/primitives';
 import { Header } from '@/components/nav/Header';
 import { Footer } from '@/components/nav/Footer';
 import { isPlaceholder, site } from '@/content/site';
+import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
 export default function ThanksPage() {
+  useDocumentTitle(`Thank you · ${site.brand}`);
   const phoneOk = !isPlaceholder(site.contact.phone);
   const emailOk = !isPlaceholder(site.contact.email);
 

@@ -136,12 +136,18 @@ Legend: `[ ]` todo · `[x]` done · `[~]` deferred (note why)
 
 ## Phase 10 — SEO
 
-- [ ] `<title>` + `<meta description>`
-- [ ] Open Graph + Twitter Card meta
-- [ ] LocalBusiness JSON-LD with placeholders
-- [ ] `robots.txt`, `sitemap.xml`
-- [ ] Canonical URL placeholder via env
-- [ ] **Gate:** Rich Results Test validates JSON-LD shape
+- [x] `<title>` + `<meta name="description">` in `index.html` for the home / shell
+- [x] Open Graph (type, site_name, title, description, image, image dimensions, image alt, locale) in `index.html`
+- [x] Twitter Card (summary_large_image, title, description, image, alt) in `index.html`
+- [x] 1200×630 `og-image.png` generated from `scripts/og-image.svg` via `scripts/build-og-image.mjs` (sharp). Visual review passed — brand wordmark, three-line headline, eyebrow line, ornamental tree, no overlap.
+- [x] `LocalBusiness` JSON-LD rendered by `StructuredData` component using site content; placeholder-aware (only emits `telephone`/`email`/`areaServed`/`address` when those fields have been replaced from `__PLACEHOLDER__`)
+- [x] `makesOffer` populated from `src/content/services.ts` so every service appears in structured data
+- [x] `openingHoursSpecification` populated from `site.contact.hours`
+- [x] `useDocumentTitle` hook + applied to /thanks (`Thank you · Niki…`), /privacy, /terms, /404 — verified end-to-end
+- [x] Canonical URL is read from `VITE_SITE_URL` env var at runtime via the JSON-LD component; no hardcoded wrong URL in HTML
+- [x] `public/robots.txt` allowing `/`, disallowing `/dev/`, pointing at `sitemap.xml`
+- [x] `public/sitemap.xml` listing `/`, `/privacy`, `/terms` with relative `<loc>` and a comment instructing the owner to replace with absolute URLs at launch
+- [x] **Gate:** JSON-LD parses as valid JSON; shape matches schema.org LocalBusiness; per-route document titles confirmed via Playwright across all five routes
 
 ## Phase 11 — Deployment Readiness
 

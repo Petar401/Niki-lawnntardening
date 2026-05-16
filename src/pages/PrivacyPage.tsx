@@ -2,8 +2,10 @@ import { Container, SectionHeading } from '@/components/primitives';
 import { Header } from '@/components/nav/Header';
 import { Footer } from '@/components/nav/Footer';
 import { isPlaceholder, site } from '@/content/site';
+import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
 export default function PrivacyPage() {
+  useDocumentTitle(`Privacy policy · ${site.brand}`);
   return (
     <div className="flex min-h-screen flex-col bg-cream text-ink">
       <Header />

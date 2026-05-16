@@ -8,6 +8,7 @@ import { Process } from '@/components/sections/Process';
 import { Testimonials } from '@/components/sections/Testimonials';
 import { FAQ } from '@/components/sections/FAQ';
 import { Contact } from '@/components/sections/Contact';
+import { StructuredData } from '@/components/util/StructuredData';
 
 const ThanksPage = lazy(() => import('@/pages/ThanksPage'));
 const PrivacyPage = lazy(() => import('@/pages/PrivacyPage'));
@@ -70,6 +71,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-cream text-ink">
+      <StructuredData />
       <Header />
       <main id="main-content">
         <Hero />

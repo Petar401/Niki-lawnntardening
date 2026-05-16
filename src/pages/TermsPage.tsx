@@ -3,8 +3,10 @@ import { Header } from '@/components/nav/Header';
 import { Footer } from '@/components/nav/Footer';
 import { DraftBanner } from './PrivacyPage';
 import { site } from '@/content/site';
+import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
 export default function TermsPage() {
+  useDocumentTitle(`Terms of service · ${site.brand}`);
   return (
     <div className="flex min-h-screen flex-col bg-cream text-ink">
       <Header />

@@ -2,8 +2,11 @@ import { ArrowLeft } from 'lucide-react';
 import { Button, Container, Icon } from '@/components/primitives';
 import { Header } from '@/components/nav/Header';
 import { Footer } from '@/components/nav/Footer';
+import { site } from '@/content/site';
+import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
 export default function NotFoundPage() {
+  useDocumentTitle(`Page not found · ${site.brand}`);
   return (
     <div className="flex min-h-screen flex-col bg-cream text-ink">
       <Header />

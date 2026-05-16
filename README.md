@@ -66,7 +66,7 @@ Produces a fully static `dist/` directory deployable to Vercel, Netlify, Cloudfl
 
 ## Phase status
 
-See `TASKS.md`. Currently completed: Phase 1 (Audit), Phase 2 (Foundation), Phase 3 (Design System), Phase 4 (Content), Phase 5 (3D Scene), Phase 6 (Page Sections), Phase 7 (Forms), Phase 8 (Performance), Phase 9 (Accessibility).
+See `TASKS.md`. Currently completed: Phase 1 (Audit), Phase 2 (Foundation), Phase 3 (Design System), Phase 4 (Content), Phase 5 (3D Scene), Phase 6 (Page Sections), Phase 7 (Forms), Phase 8 (Performance), Phase 9 (Accessibility), Phase 10 (SEO).
 
 ## How the quote form sends enquiries
 
@@ -112,5 +112,7 @@ The site ships with clearly-marked placeholders in `src/content/site.ts`. Every 
 | `src/content/testimonials.ts` | all entries | Three illustrative quotes — replace with real customer quotes (with names &amp; permission) |
 | `src/content/projects.ts` | `lawn-restoration-illustrative`, `planting-plan-illustrative` | Two illustrative entries — replace with real project pairs and photos when available |
 | `.env` (production) | `VITE_FORM_ENDPOINT` | Empty falls back to a `mailto:` link; set to a real form endpoint (Formspree, Resend, your own) before launch |
-| `.env` (production) | `VITE_SITE_URL` | Canonical URL once a domain is chosen |
+| `.env` (production) | `VITE_SITE_URL` | Canonical URL once a domain is chosen — appears in the JSON-LD `url` field |
 | `.env` (production) | `VITE_PUBLIC_PHONE`, `VITE_PUBLIC_EMAIL` | Optional duplicates for SEO &amp; structured data |
+| `public/sitemap.xml` | `<loc>` values | Replace each relative path with the absolute URL of your deployed site |
+| `public/og-image.png` | (optional) | Regenerate with `node scripts/build-og-image.mjs` after editing `scripts/og-image.svg`; the default uses brand colours and the tagline |
