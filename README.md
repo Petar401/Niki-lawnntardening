@@ -66,7 +66,15 @@ Produces a fully static `dist/` directory deployable to Vercel, Netlify, Cloudfl
 
 ## Phase status
 
-See `TASKS.md`. Currently completed: Phase 1 (Audit), Phase 2 (Foundation), Phase 3 (Design System), Phase 4 (Content), Phase 5 (3D Scene), Phase 6 (Page Sections).
+See `TASKS.md`. Currently completed: Phase 1 (Audit), Phase 2 (Foundation), Phase 3 (Design System), Phase 4 (Content), Phase 5 (3D Scene), Phase 6 (Page Sections), Phase 7 (Forms).
+
+## How the quote form sends enquiries
+
+The form chooses a delivery path at runtime:
+
+1. If `VITE_FORM_ENDPOINT` is set, the form POSTs JSON to that URL and then redirects to `/thanks` on success. Compatible with Formspree, Resend, Netlify Forms, your own endpoint, or anything that accepts a JSON body.
+2. Otherwise, if `site.contact.email` has been replaced (it ships as `__PLACEHOLDER__`), the form opens the visitor's mail client with everything pre-filled (`mailto:` fallback).
+3. If neither is configured, the form validates as normal and shows a friendly "not yet configured — please call or email us directly" message instead of failing silently.
 
 ## Replacing the project photos
 

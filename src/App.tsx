@@ -9,19 +9,61 @@ import { Testimonials } from '@/components/sections/Testimonials';
 import { FAQ } from '@/components/sections/FAQ';
 import { Contact } from '@/components/sections/Contact';
 
+const ThanksPage = lazy(() => import('@/pages/ThanksPage'));
+const PrivacyPage = lazy(() => import('@/pages/PrivacyPage'));
+const TermsPage = lazy(() => import('@/pages/TermsPage'));
+const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'));
 const Styleguide = lazy(() => import('@/dev/Styleguide'));
 
-function isStyleguideRoute(): boolean {
-  if (typeof window === 'undefined') return false;
-  if (!import.meta.env.DEV) return false;
-  return window.location.pathname.replace(/\/$/, '') === '/dev/styleguide';
+function currentPath(): string {
+  if (typeof window === 'undefined') return '/';
+  const path = window.location.pathname.replace(/\/+$/, '');
+  return path === '' ? '/' : path;
 }
 
+const PageLoading = () => (
+  <div className="p-10 text-ink/60" aria-busy="true">
+    Loading…
+  </div>
+);
+
 export default function App() {
-  if (isStyleguideRoute()) {
+  const path = currentPath();
+
+  if (import.meta.env.DEV && path === '/dev/styleguide') {
     return (
-      <Suspense fallback={<div className="p-10 text-ink/60">Loading styleguide…</div>}>
+      <Suspense fallback={<PageLoading />}>
         <Styleguide />
+      </Suspense>
+    );
+  }
+
+  if (path === '/thanks') {
+    return (
+      <Suspense fallback={<PageLoading />}>
+        <ThanksPage />
+      </Suspense>
+    );
+  }
+  if (path === '/privacy') {
+    return (
+      <Suspense fallback={<PageLoading />}>
+        <PrivacyPage />
+      </Suspense>
+    );
+  }
+  if (path === '/terms') {
+    return (
+      <Suspense fallback={<PageLoading />}>
+        <TermsPage />
+      </Suspense>
+    );
+  }
+
+  if (path !== '/') {
+    return (
+      <Suspense fallback={<PageLoading />}>
+        <NotFoundPage />
       </Suspense>
     );
   }

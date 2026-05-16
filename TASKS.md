@@ -92,11 +92,17 @@ Legend: `[ ]` todo · `[x]` done · `[~]` deferred (note why)
 
 ## Phase 7 — Forms
 
-- [ ] `QuoteForm` controlled fields with validation
-- [ ] Honeypot + time-to-submit anti-spam
-- [ ] `VITE_FORM_ENDPOINT` integration + `mailto:` fallback
-- [ ] `/thanks` confirmation route
-- [ ] **Gate:** keyboard-only happy path + error path both pass
+- [x] `QuoteForm` fully controlled with validation (name, email, postcode, garden size, message required; phone optional; service chips optional)
+- [x] Accessible error pattern: error summary at top with anchor links to each errored field; per-field `aria-invalid` + `aria-describedby` + visible helper text under the input
+- [x] On submit-with-errors: error summary receives focus and scrolls into view; field errors clear as the user edits
+- [x] Honeypot anti-spam (`company` field; off-screen, `tabIndex={-1}`); time-to-submit gate (1500ms minimum since mount)
+- [x] Submission via `submitQuote()`: prefers `VITE_FORM_ENDPOINT` POST → falls back to `mailto:` using `site.contact.email` → friendly "not yet configured" message if neither is set
+- [x] On endpoint success → navigate to `/thanks`; on `mailto:` success → in-form success card (since the user's mail client takes over)
+- [x] `/thanks` confirmation route: green-check icon, confirmation copy, CTA back home, contact details footer
+- [x] `/privacy` and `/terms` skeletons with explicit Draft banners, structured into honest sections, so the footer links never 404
+- [x] `/404` not-found page: on-brand "wandered off" copy + CTA back home
+- [x] Each route is its own lazy chunk (~1 KB gzip each)
+- [x] **Gate:** keyboard-only happy path verified; error path verified (error summary appears, links to fields, errors clear on edit)
 
 ## Phase 8 — Performance
 
