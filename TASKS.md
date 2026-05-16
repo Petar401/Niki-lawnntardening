@@ -74,16 +74,21 @@ Legend: `[ ]` todo · `[x]` done · `[~]` deferred (note why)
 
 ## Phase 6 — Sections
 
-- [ ] `Header` (logo wordmark, nav, primary CTA, mobile drawer with focus trap)
-- [ ] `Hero` (headline, sub, CTAs, trust strip, 3D embed)
-- [ ] `Services` (6 cards, hover lift, anchor IDs)
-- [ ] `Projects` with `BeforeAfterSlider` component, 4 entries
-- [ ] `Process` (4-step timeline; vertical on mobile, horizontal on desktop)
-- [ ] `Testimonials` (3 cards; section hidden when `placeholderTestimonials: false`)
-- [ ] `FAQ` (accessible accordion; only one open at a time)
-- [ ] `Contact` (`QuoteForm`)
-- [ ] `Footer`
-- [ ] **Gate:** every section renders at 320/768/1024/1440/1920; no horizontal scroll; tab order sensible
+- [x] `Header` (sticky, blurs on scroll; wordmark + nav + primary CTA + mobile hamburger)
+- [x] `MobileMenu` (full-screen drawer; body-scroll lock; Esc to close; close-button auto-focus)
+- [x] `Wordmark` (leaf glyph + Fraunces "Niki" + small "Lawn & Gardening")
+- [x] `Hero` (eyebrow, balanced headline with leaf accent, lede, dual CTA, trust strip, 3D embed)
+- [x] `Services` (6 cards in responsive grid; icon, name, short pitch, description, highlights with green checks)
+- [x] `Projects` with `BeforeAfterSlider` (clip-path comparison, drag + keyboard slider, corner pills, draggable handle); 2 real before/after pairs + 2 illustrative entries as text cards under "Other recent work"
+- [x] `Process` (4-step timeline; horizontal on lg, stacked on mobile; numbered green badges with hairline connector lines)
+- [x] `Testimonials` (3 cards on mist background; star ratings; illustrative-quotes notice; section gated by `site.flags.showTestimonials`)
+- [x] `FAQ` (accessible `<details>` accordion; chevron rotates on open)
+- [x] `Contact` (two-column: contact info with placeholder labels + `QuoteForm` shell)
+- [x] `Footer` (forest-green dark surface; brand statement; placeholder-aware contact list; explore + services columns; legal + hours)
+- [x] **Gate:** every section renders at 390 / 1280 (verified by Playwright); no horizontal scroll; placeholder values clearly labelled
+- [x] **Bug fix:** `BeforeAfterSlider` rewritten with `clip-path` instead of pixel-width JS hack — eliminates the ref-race squish on first paint
+- [x] **Bug fix:** `Reveal` is now a no-op passthrough — earlier opacity-based scroll-in left content invisible when JS was slow or the element never entered the viewport
+- [x] **Content fix:** project photos cropped via `scripts/crop-project-photos.mjs` to remove the burned-in BEFORE/AFTER overlays from the source JPEGs; script kept under version control so the owner can re-run on replacement photos
 
 ## Phase 7 — Forms
 

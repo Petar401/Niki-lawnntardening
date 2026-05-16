@@ -66,7 +66,17 @@ Produces a fully static `dist/` directory deployable to Vercel, Netlify, Cloudfl
 
 ## Phase status
 
-See `TASKS.md`. Currently completed: Phase 1 (Audit), Phase 2 (Foundation), Phase 3 (Design System), Phase 4 (Content).
+See `TASKS.md`. Currently completed: Phase 1 (Audit), Phase 2 (Foundation), Phase 3 (Design System), Phase 4 (Content), Phase 5 (3D Scene), Phase 6 (Page Sections).
+
+## Replacing the project photos
+
+The project photos in `public/images/projects/` are real customer work but the original JPEGs from the owner had "BEFORE" / "AFTER" overlay text burned into the top and bottom edges. We cropped them with `scripts/crop-project-photos.mjs`. If you replace any of these files with a new photo that also has burned-in labels, drop the new file in place and re-run:
+
+```bash
+node scripts/crop-project-photos.mjs
+```
+
+If your replacement photos are clean (no overlays), skip the script.
 
 ## Launch checklist — content the owner must replace before going live
 
